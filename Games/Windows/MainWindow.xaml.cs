@@ -23,6 +23,12 @@ namespace Games
         public MainWindow()
         {
             InitializeComponent();
+            FrameMain.Navigate(new Pages.Login());
+        }
+
+        private void FrameMain_ContentRendered(object sender, EventArgs e)
+        {
+
         }
     }
 }
