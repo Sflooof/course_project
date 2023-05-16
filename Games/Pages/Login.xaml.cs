@@ -24,15 +24,33 @@ namespace Games.Pages
         {
             InitializeComponent();
         }
+        //Авторизация
+        private void Entry_Click(object sender, RoutedEventArgs e)
+        {
+            var currect_user = App.db.Users.FirstOrDefault(u => u.email == TxbLogin.Text && u.password == TxbPassword.Password );
+            if (currect_user != null)
+            {
+                
+                App.CurrentUser = currect_user;
+                //NavigationService.Navigate(new Catalog());
+                Windows.Game game = new Windows.Game();
+                game.Show();
+                Window.GetWindow(this).Close();
+            }
+            else 
+            {
+                MessageBox.Show("Пользователя не существует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Reg_Click(object sender, RoutedEventArgs e)
         {
 
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        //Поле логин пустое при обновлении
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-
+            TxbLogin.Text = string.Empty;
         }
     }
 }

@@ -6,19 +6,19 @@
       xmlns:local="clr-namespace:Games.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Login">
+      Title="Login" Loaded="Page_Loaded">
 
     <Grid>
         <StackPanel VerticalAlignment="Center" Width="265" HorizontalAlignment="Center" Height="274">
             <Label Content="Авторизация" HorizontalAlignment="Center"  FontSize="24" FontFamily="Times New Roman" Foreground="#50341A"/>
 
-            <TextBlock Text="Логин" FontSize="16" FontFamily="Times New Roman" TextAlignment="Left" Foreground="#50341A"/>
+            <TextBlock Text="Эл. почта" FontSize="16" FontFamily="Times New Roman" TextAlignment="Left" Foreground="#50341A"/>
             <TextBox Name="TxbLogin" Margin="5"/>
             <TextBlock Text="Пароль" FontSize="14" FontFamily="Times New Roman" TextAlignment="Left"  Foreground="#50341A"/>
             <PasswordBox Name="TxbPassword" Margin="5" ></PasswordBox>
 
-            <Button Click="Button_Click" Content="Войти" />
-            <Button Click="Button_Click_1" Content="Зарегистрироваться" />
+            <Button Click="Entry_Click" Content="Войти" />
+            <Button Click="Reg_Click" Content="Зарегистрироваться" />
         </StackPanel>
     </Grid>
 </Page>

@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/icon.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entities/gamesmodel.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entities/gamesmodel.tt")]
 
 
