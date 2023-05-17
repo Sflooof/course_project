@@ -72,6 +72,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\Game.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -125,6 +129,9 @@
     </Compile>
     <Compile Include="Entities\User.cs">
       <DependentUpon>GamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Registration.xaml.cs">
+      <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Game.xaml.cs">
       <DependentUpon>Game.xaml</DependentUpon>
@@ -195,6 +202,7 @@
       <DependentUpon>GamesModel.edmx</DependentUpon>
       <LastGenOutput>GamesModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Windows\icons8-rubik_s-cube-66.ico" />
     <Resource Include="Resources\no.jpg" />
   </ItemGroup>
   <ItemGroup>

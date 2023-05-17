@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Games"
         mc:Ignorable="d"
-        Title="Интернет-магазин" Height="450" Width="600">
+        Title="Интернет-магазин" Height="450" Width="600" Icon="/Windows/icons8-rubik_s-cube-66.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"></RowDefinition>
