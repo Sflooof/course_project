@@ -1,24 +1,15 @@
-﻿<Page x:Class="Games.Pages.Catalog"
+﻿<Page x:Class="Games.Pages.Game_detail"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Games.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="1200"
-      Title="Catalog" >
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Game_detail">
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"></RowDefinition>
-            <RowDefinition Height="35"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="1" Background="#FF9F40">
-            <Button Content="Удалить" Name="Bt_del" HorizontalAlignment="Left"  Width="171" Click="Button_Click"/>
-            <Button Content="Редактировать" Name="Bt_edit" HorizontalAlignment="Center"  Width="171" Click="Button_Click"/>
-            <Button Content="Добавить" Name="Bt_add" HorizontalAlignment="Right"  Width="171" Click="Button_Click"/>
-        </Grid>
-        <ListView x:Name="listviewGame" Grid.Row="0" SelectionChanged="listviewGame_SelectionChanged">
+        <!--<ListView x:Name="listviewGame" Grid.Row="0" SelectionChanged="listviewGame_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="20" Width="850">
@@ -39,6 +30,6 @@
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+        </ListView>-->
     </Grid>
 </Page>

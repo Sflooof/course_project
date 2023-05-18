@@ -45,7 +45,7 @@ namespace Games.Pages
 
         private void Reg_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new Registration());
         }
         //Поле логин пустое при обновлении
         private void Page_Loaded(object sender, RoutedEventArgs e)

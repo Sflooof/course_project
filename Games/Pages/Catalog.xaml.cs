@@ -32,17 +32,18 @@ namespace Games.Pages
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+                NavigationService.Navigate(new Add());
         }
 
-        private void listviewUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
 
         private void listviewGame_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void Bt_detail_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Game_detail());
         }
     }
 }

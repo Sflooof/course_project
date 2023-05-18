@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,9 +28,14 @@ namespace Games.Windows
 
         private void Bt_back_Click(object sender, RoutedEventArgs e)
         {
-            if (FrameSecond.CanGoBack && MessageBox.Show($"Вы уверены, что хотите вернуться?\nНесохраненные данные могут быть утеряны",
+            if (MessageBox.Show($"Вы уверены, что хотите вернуться?\nНесохраненные данные могут быть утеряны",
                 "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Exclamation) == MessageBoxResult.Yes)
-                FrameSecond.GoBack();
+            {
+                MainWindow auth = new MainWindow();
+                auth.Show();
+                Window.GetWindow(this).Close();
+            }
+                
         }
     }
 }

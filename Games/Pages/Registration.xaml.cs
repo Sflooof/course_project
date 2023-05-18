@@ -23,8 +23,8 @@ namespace Games.Pages
     {
         private Entities.User add_user = null;
         private byte[] img = null;
-        Regex pass = new Regex(@"^\w{8,50}$");
-        Regex email = new Regex(@"^[w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+        Regex pass = new Regex(@"^\w{4,50}$");
+        Regex email = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
         Regex name = new Regex(@"^[А-ЯЁ][а-яё]+$");
         MatchCollection match;
         public Registration()
@@ -45,18 +45,22 @@ namespace Games.Pages
             match = name.Matches(Txt_name.Text);
             if (match.Count == 0)
                 errorBuilder.AppendLine("Некорректно введено имя.");
-            match = name.Matches(Txt_name.Text);
+            match = name.Matches(Txt_patr.Text);
             if (match.Count == 0)
                 errorBuilder.AppendLine("Некорректно введено отчество.");
             if (string.IsNullOrWhiteSpace(Txt_email.Text))
                 errorBuilder.AppendLine("Поле обязательно для заполнения.");
+            match = email.Matches(Txt_email.Text);
+            if (match.Count == 0)
+                errorBuilder.AppendLine("Некорректно введена электронная почта.");
+            match = pass.Matches(Txt_password.Password);
             if (match.Count == 0)
                 errorBuilder.AppendLine("Некорректно введен пароль.");
-            if (string.IsNullOrWhiteSpace(Txt_password.Text))
+            if (string.IsNullOrWhiteSpace(Txt_password.Password))
                 errorBuilder.AppendLine("Поле обязательно для заполнения.");
-            if (string.IsNullOrWhiteSpace(Txt_right_password.Text))
+            if (string.IsNullOrWhiteSpace(Txt_right_password.Password))
                 errorBuilder.AppendLine("Поле обязательно для заполнения.");
-            if (Txt_password != Txt_right_password)
+            if (Txt_password.Password != Txt_right_password.Password)
                 errorBuilder.AppendLine("Пароли не совпадают.");
 
             if (errorBuilder.Length > 0)
@@ -85,7 +89,7 @@ namespace Games.Pages
                             name = Txt_name.Text,
                             patronymic = "NULL",
                             email = Txt_email.Text,
-                            password = Txt_password.Text,
+                            password = Txt_password.Password,
                             role = 2
                         };
                     }
@@ -97,14 +101,14 @@ namespace Games.Pages
                             name = Txt_name.Text,
                             patronymic = Txt_patr.Text,
                             email = Txt_email.Text,
-                            password = Txt_password.Text,
+                            password = Txt_password.Password,
                             role = 2
                         };
                     }
 
                     App.db.Users.Add(user);
                     App.db.SaveChanges();
-                    MessageBox.Show("Пользователь успешно создан", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Пользователь успешно создан", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
@@ -112,10 +116,19 @@ namespace Games.Pages
                     add_user.name = Txt_name.Text;
                     add_user.patronymic = Txt_patr.Text;
                     add_user.email = Txt_email.Text;
-                    add_user.password = Txt_password.Text;
-                }
+                    add_user.password = Txt_password.Password;
+                }   
                 NavigationService.GoBack();
             }
-        }   
+        }
+
+        private void Btn_back_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show($"Вы уверены, что хотите вернуться назад?\nНесохраненные данные могут быть утеряны","Внимание",
+                MessageBoxButton.YesNo,MessageBoxImage.Exclamation) == MessageBoxResult.Yes)
+            {
+                NavigationService.Navigate(new Login());
+            }
+        }
     }
 }
