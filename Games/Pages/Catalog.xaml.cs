@@ -45,5 +45,10 @@ namespace Games.Pages
         {
             NavigationService.Navigate(new Game_detail());
         }
+
+        private void Bt_back_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Login());
+        }
     }
 }

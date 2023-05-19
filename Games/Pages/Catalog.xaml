@@ -14,9 +14,10 @@
             <RowDefinition Height="35"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="1" Background="#FF9F40">
-            <Button Content="Удалить" Name="Bt_del" HorizontalAlignment="Left"  Width="171" Click="Button_Click"/>
-            <Button Content="Редактировать" Name="Bt_edit" HorizontalAlignment="Center"  Width="171" Click="Button_Click"/>
+            <Button Content="Удалить" Name="Bt_del" HorizontalAlignment="Right" Margin="0,0,400,0" Width="171" Click="Button_Click"/>
+            <Button Content="Редактировать" Name="Bt_edit" HorizontalAlignment="Right" Margin="0,0,200,0" Width="171" Click="Button_Click"/>
             <Button Content="Добавить" Name="Bt_add" HorizontalAlignment="Right"  Width="171" Click="Button_Click"/>
+            <Button Content="Назад" Name="Bt_back" HorizontalAlignment="Left"  Width="171" Click="Bt_back_Click"/>
         </Grid>
         <ListView x:Name="listviewGame" Grid.Row="0" SelectionChanged="listviewGame_SelectionChanged">
             <ListView.ItemTemplate>

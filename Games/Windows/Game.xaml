@@ -17,6 +17,6 @@
         <TextBlock Text="НаСтол" FontSize="30" Margin="80 5 5 5" TextAlignment="Left"></TextBlock>
         <Image Source="/Resources/icon.png" HorizontalAlignment="Left"></Image>
         <Frame Name="FrameSecond" Grid.Row="1" NavigationUIVisibility="Hidden"></Frame>
-        <Button Content="Назад" Name="Bt_back" HorizontalAlignment="Right"  Grid.Row="2" Width="171" Click="Bt_back_Click"/>
+        <Button Content="Вход" Name="Bt_back" HorizontalAlignment="Center"  Grid.Row="2" Width="171" Click="Bt_back_Click"/>
     </Grid>
 </Window>
