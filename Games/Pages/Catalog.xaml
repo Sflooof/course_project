@@ -17,7 +17,7 @@
             <Button Content="Удалить" Name="Bt_del" HorizontalAlignment="Right" Margin="0,0,400,0" Width="171" Click="Button_Click"/>
             <Button Content="Редактировать" Name="Bt_edit" HorizontalAlignment="Right" Margin="0,0,200,0" Width="171" Click="Button_Click"/>
             <Button Content="Добавить" Name="Bt_add" HorizontalAlignment="Right"  Width="171" Click="Button_Click"/>
-            <Button Content="Назад" Name="Bt_back" HorizontalAlignment="Left"  Width="171" Click="Bt_back_Click"/>
+            <Button Content="Назад" Name="Bt_back" HorizontalAlignment="Left"  Width="171" Click="Bt_back_Click" Margin="5,0,0,3" VerticalAlignment="Bottom"/>
         </Grid>
         <ListView x:Name="listviewGame" Grid.Row="0" SelectionChanged="listviewGame_SelectionChanged">
             <ListView.ItemTemplate>

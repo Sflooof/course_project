@@ -24,5 +24,10 @@ namespace Games.Pages
         {
             InitializeComponent();
         }
+
+        private void Bt_back_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

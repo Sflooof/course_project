@@ -9,27 +9,41 @@
       Title="Game_detail">
 
     <Grid>
-        <!--<ListView x:Name="listviewGame" Grid.Row="0" SelectionChanged="listviewGame_SelectionChanged">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1" Background="#FF9F40">
+            <Button Content="Назад" Name="Bt_back" HorizontalAlignment="Left"  Width="171" Click="Bt_back_Click" Margin="5,0,0,3" VerticalAlignment="Bottom"/>
+        </Grid>
+        <ListView x:Name="listviewGame" Grid.Row="0" SelectionChanged="listviewGame_SelectionChanged">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Margin="20" Width="850">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"></ColumnDefinition>
-                            <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="70"></ColumnDefinition>
-                            <ColumnDefinition Width="100"></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
-                        <Image Width="150" Grid.Column="0"  HorizontalAlignment="Center" >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Width="150" Grid.Row="0"  HorizontalAlignment="Center" >
                             <Image.Source>
                                 <Binding Path="CorrectImg"></Binding>
                             </Image.Source>
                         </Image>
-                        <TextBlock Text="{Binding name}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Column="1"></TextBlock>
-                        <TextBlock Text="{Binding cost}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Column="2"></TextBlock>
-                        <Button Visibility="{Binding AdminControlsVisibility}" Name="Bt_detail" Click="Bt_detail_Click" Content="Подробнее" Grid.Column="3"></Button>
+                        <TextBlock Text="{Binding name}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Row="1"></TextBlock>
+                        <TextBlock Text="{Binding description}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Row="2"></TextBlock>
+                        <TextBlock Text="{Binding equipment}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Row="3"></TextBlock>
+                        <TextBlock Text="{Binding category}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Row="4"></TextBlock>
+                        <TextBlock Text="{Binding manufacturer}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Row="5"></TextBlock>
+                        <TextBlock Text="{Binding release_year}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Row="6"></TextBlock>
+                        <TextBlock Text="{Binding cost}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Row="7"></TextBlock>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>-->
+        </ListView>
     </Grid>
 </Page>

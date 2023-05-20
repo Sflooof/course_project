@@ -13,27 +13,31 @@
             <StackPanel VerticalAlignment="Center" Width="500">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Название*"></TextBlock>
-                    <TextBox Name="Txt_surname" Margin="5" Height="25" Width="300"></TextBox>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Описание*"></TextBlock>
                     <TextBox Name="Txt_name" Margin="5" Height="25" Width="300"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Описание*"></TextBlock>
+                    <TextBox Name="Txt_description" Margin="5" Height="25" Width="300"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Содержимое*"></TextBlock>
-                    <TextBox Name="Txt_patr" Margin="5" Height="25" Width="300"></TextBox>
+                    <TextBox Name="Txt_equipment" Margin="5" Height="25" Width="300"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Категория*"></TextBlock>
-                    <TextBox Name ="Txt_email" Margin="5" Height="25" Width="300"></TextBox>
+                    <TextBox Name ="Txt_category" Margin="5" Height="25" Width="300"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Производитель*"></TextBlock>
-                    <TextBox Name ="Txt_password" Margin="5" Height="25" Width="300"></TextBox>
+                    <TextBox Name ="Txt_manufacturer" Margin="5" Height="25" Width="300"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Год выпуска*"></TextBlock>
-                    <TextBox Name ="Txt_right_password"  Margin="5" Height="25" Width="300"></TextBox>
+                    <DatePicker Name="Txt_release_year" Width="300"></DatePicker>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Цена*"></TextBlock>
+                    <TextBox Name="Txt_coust" Width="300"></TextBox>
                 </StackPanel>
             </StackPanel>
             <StackPanel>

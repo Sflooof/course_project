@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\10200277\Source\Repos\course_project\Games\obj\Debug\
+C:\Users\gun4e\Source\Repos\course_project\Games\obj\Debug\
 Games
 none
 false
 DEBUG;TRACE
-C:\Users\10200277\Source\Repos\course_project\Games\App.xaml
+C:\Users\gun4e\Source\Repos\course_project\Games\App.xaml
 71876109589
 2-2082771843
-21315306275
-18-245097375
+22-1766782343
+18-1790202835
 Pages\Add.xaml;Pages\Catalog.xaml;Pages\Game_detail.xaml;Pages\Login.xaml;Pages\Registration.xaml;Windows\Game.xaml;Windows\Authorization.xaml;
 
-False
+True
 

@@ -27,7 +27,7 @@ namespace Games.Pages
 
         private void Btn_back_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.GoBack();
         }
 
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
