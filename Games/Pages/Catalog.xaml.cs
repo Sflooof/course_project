@@ -20,6 +20,7 @@ namespace Games.Pages
     /// </summary>
     public partial class Catalog : Page
     {
+        public Entities.Game game1;
         public Catalog()
         {
             InitializeComponent();
@@ -28,12 +29,13 @@ namespace Games.Pages
             {
                 Bt_add.Visibility = Visibility.Collapsed;
             }
+            game1 = App.db.Games.ToList().FirstOrDefault();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-                NavigationService.Navigate(new Add());
-        }
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
+        //        NavigationService.Navigate(new Add_game());
+        //}
 
 
         private void listviewGame_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -49,6 +51,21 @@ namespace Games.Pages
         private void Bt_back_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Login());
+        }
+
+        private void Bt_del_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Bt_edit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Bt_add_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Add_game(null));
         }
     }
 }

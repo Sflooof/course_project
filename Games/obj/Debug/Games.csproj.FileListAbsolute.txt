@@ -61,7 +61,7 @@ C:\Users\10200277\Source\Repos\course_project\Games\obj\Debug\Games.Properties.R
 C:\Users\10200277\Source\Repos\course_project\Games\obj\Debug\Games.csproj.GenerateResource.cache
 C:\Users\10200277\Source\Repos\course_project\Games\obj\Debug\Games.csproj.CoreCompileInputs.cache
 C:\Users\10200277\Source\Repos\course_project\Games\obj\Debug\Games.csproj.CopyComplete
-C:\Users\10200277\Source\Repos\course_project\Games\obj\Debug\Pages\Add.g.cs
-C:\Users\10200277\Source\Repos\course_project\Games\obj\Debug\Pages\Add.baml
 C:\Users\10200277\Source\Repos\course_project\Games\obj\Debug\Pages\Game_detail.g.cs
 C:\Users\10200277\Source\Repos\course_project\Games\obj\Debug\Pages\Game_detail.baml
+C:\Users\10200277\Source\Repos\course_project\Games\obj\Debug\Pages\Add_game.g.cs
+C:\Users\10200277\Source\Repos\course_project\Games\obj\Debug\Pages\Add_game.baml

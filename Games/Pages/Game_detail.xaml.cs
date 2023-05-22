@@ -29,5 +29,10 @@ namespace Games.Pages
         {
 
         }
+
+        private void listviewGame_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

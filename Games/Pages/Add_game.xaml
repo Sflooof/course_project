@@ -1,4 +1,4 @@
-﻿<Page x:Class="Games.Pages.Add"
+﻿<Page x:Class="Games.Pages.Add_game"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -25,24 +25,25 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Категория*"></TextBlock>
-                    <TextBox Name ="Txt_category" Margin="5" Height="25" Width="300"></TextBox>
+                    <ComboBox Name ="Cb_category" Margin="5" Height="25" Width="300"></ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Производитель*"></TextBlock>
-                    <TextBox Name ="Txt_manufacturer" Margin="5" Height="25" Width="300"></TextBox>
+                    <ComboBox Name ="Cb_manufacturer" Margin="5" Height="25" Width="300"></ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Год выпуска*"></TextBlock>
-                    <DatePicker Name="Txt_release_year" Width="300"></DatePicker>
+                    <DatePicker Name="Txt_release_year" Margin="5" Height="25" Width="300"></DatePicker>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Цена*"></TextBlock>
-                    <TextBox Name="Txt_coust" Width="300"></TextBox>
+                    <TextBox Name="Txt_coust" Margin="5" Height="25" Width="300"></TextBox>
                 </StackPanel>
             </StackPanel>
             <StackPanel>
                 <TextBlock Text="Фото игры*"></TextBlock>
-                <Image Name ="Img_photo"  Margin="5" Height="100" Width="100"></Image>
+                <Image Name ="Img_photo"  Margin="5" Height="150" Width="150"></Image>
+                <Button x:Name="Btn_img" Click="Btn_img_Click" Content="Выбрать фотографию"/>
                 <Button x:Name="SaveBtn" Click="SaveBtn_Click" Content="Coxpанить"/>
                 <Button x:Name="Btn_back" Click="Btn_back_Click" Content="Назад" Width="180"/>
             </StackPanel>
