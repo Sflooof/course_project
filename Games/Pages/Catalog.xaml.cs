@@ -60,12 +60,24 @@ namespace Games.Pages
 
         private void Bt_edit_Click(object sender, RoutedEventArgs e)
         {
-
+            var button = sender as Button;
+            var currentProduct = button.DataContext as Entities.Game;
+            NavigationService.Navigate(new Add_game(currentProduct));
         }
 
         private void Bt_add_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Add_game(null));
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Update();
+        }
+        private void Update()
+        {
+            var up_games = App.db.Games.ToList();
+            listviewGame.ItemsSource = up_games;
         }
     }
 }

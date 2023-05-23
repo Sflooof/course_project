@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Path = System.IO.Path;
 
 namespace Games.Pages
 {
@@ -26,6 +27,10 @@ namespace Games.Pages
     {
         private Entities.Game curr_game = null;
         private byte[] img = null;
+        public string path = Path.Combine(Directory.GetParent(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName)).FullName, @"Resources\");
+        //public string img_cur = null;
+        private Game game = new Game();
+        string photoName;
         public Add_game(Entities.Game game)
         {
             InitializeComponent();
@@ -46,6 +51,11 @@ namespace Games.Pages
             }
         }
 
+        public Add_game()
+        {
+            InitializeComponent();
+        }
+
         private void Btn_back_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
@@ -54,14 +64,14 @@ namespace Games.Pages
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
             var errorMessage = CheckErrors();
-            var category = App.db.Categories.Where(c => c.name == Cb_category.SelectedItem.ToString()).FirstOrDefault();
-            var manufacturer = App.db.Manufacturers.Where(c => c.name == Cb_manufacturer.SelectedItem.ToString()).FirstOrDefault();
             if (errorMessage.Length > 0)
             {
                 MessageBox.Show(errorMessage, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
+                var category = App.db.Categories.Where(c => c.name == Cb_category.SelectedItem.ToString()).FirstOrDefault();
+                var manufacturer = App.db.Manufacturers.Where(c => c.name == Cb_manufacturer.SelectedItem.ToString()).FirstOrDefault();
                 if (curr_game == null)
                 {
                     var car = new Entities.Game
@@ -72,8 +82,9 @@ namespace Games.Pages
                         category = category.Id,
                         manufacturer = manufacturer.Id,
                         release_year = DateTime.Parse(Txt_release_year.Text),
-                        cost = Convert.ToDecimal(Txt_coust.Text)
-                    };
+                        cost = Convert.ToDecimal(Txt_coust.Text),
+                        photo = photoName
+                };
 
                     App.db.Games.Add(car);
                     App.db.SaveChanges();
@@ -89,8 +100,8 @@ namespace Games.Pages
                     curr_game.release_year = DateTime.Parse(Txt_release_year.Text);
                     curr_game.cost = Convert.ToDecimal(Txt_coust.Text);
 
-                    if (curr_game.photo != null)
-                        curr_game.photo = Img_photo.ToString();
+                    if (img != null)
+                        curr_game.photo = photoName;
                     App.db.SaveChanges();
                     MessageBox.Show("Игра успешно обновлена", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -101,12 +112,19 @@ namespace Games.Pages
         private void Btn_img_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog file_img = new OpenFileDialog();
+            file_img.Multiselect = false;
             file_img.Filter = "Image | *.png; *.jpg; *.jpeg";
             if (file_img.ShowDialog() == true)
             {
                 img = File.ReadAllBytes(file_img.FileName);
+                
                 Img_photo.Source = new ImageSourceConverter()
                     .ConvertFrom(img) as ImageSource;
+                photoName = Path.GetFileName(file_img.FileName);
+                
+                path += photoName;
+                File.Copy(file_img.FileName, path);
+                
             }
         }
 
@@ -135,6 +153,16 @@ namespace Games.Pages
                 errorBuilder.Insert(0, "Устраните следующие ошибки:\n");
 
             return errorBuilder.ToString();
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            var combox_cat = App.db.Categories.OrderBy(p => p.Id).Select(p => p.name).ToArray();
+            var combox_man = App.db.Manufacturers.OrderBy(p => p.Id).Select(p => p.name).ToArray();
+            for (int i = 0; i < combox_cat.Length; i++)
+                Cb_category.Items.Add(combox_cat[i]);
+            for (int i = 0; i < combox_man.Length; i++)
+                Cb_manufacturer.Items.Add(combox_man[i]);
         }
     }
 }

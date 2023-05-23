@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Games.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Add">
+      Title="Добавление/Редактирование" Loaded="Page_Loaded">
 
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -33,7 +33,7 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Год выпуска*"></TextBlock>
-                    <DatePicker Name="Txt_release_year" Margin="5" Height="25" Width="300"></DatePicker>
+                    <DatePicker Name="Txt_release_year" Margin="5 10 5 5" Height="50" Width="200"></DatePicker>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Цена*"></TextBlock>

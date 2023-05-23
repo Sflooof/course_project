@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Games.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="1200"
-      Title="Catalog" >
+      Title="Catalog" Loaded="Page_Loaded">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -14,9 +14,9 @@
             <RowDefinition Height="35"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="1" Background="#FF9F40">
-            <Button Content="Удалить" Name="Bt_del" HorizontalAlignment="Right" Margin="0,0,400,0" Width="171" Click="Bt_del_Click"/>
-            <Button Content="Редактировать" Name="Bt_edit" HorizontalAlignment="Right" Margin="0,0,200,0" Width="171" Click="Bt_edit_Click"/>
             <Button Content="Добавить" Name="Bt_add" HorizontalAlignment="Right"  Width="171" Click="Bt_add_Click"/>
+            <Button Content="Добавить категорию" Name="Bt_add_cat" HorizontalAlignment="Right" Width="171" Click="Bt_add_Click" Margin="0,0,133,0" VerticalAlignment="Top"/>
+            <Button Content="Добавить производителя" Name="Bt_add_man" HorizontalAlignment="Right"  Width="298" Click="Bt_add_Click" Margin="0,0,323,0" VerticalAlignment="Top"/>
             <Button Content="Назад" Name="Bt_back" HorizontalAlignment="Left"  Width="171" Click="Bt_back_Click" Margin="5,0,0,3" VerticalAlignment="Bottom"/>
         </Grid>
         <ListView x:Name="listviewGame" Grid.Row="0" SelectionChanged="listviewGame_SelectionChanged">
@@ -26,8 +26,10 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="70"></ColumnDefinition>
-                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="75"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Image Width="150" Grid.Column="0"  HorizontalAlignment="Center" >
                             <Image.Source>
@@ -36,7 +38,9 @@
                         </Image>
                         <TextBlock Text="{Binding name}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Column="1"></TextBlock>
                         <TextBlock Text="{Binding cost}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Column="2"></TextBlock>
-                        <Button Visibility="{Binding AdminControlsVisibility}" Name="Bt_detail" Click="Bt_detail_Click" Content="Подробнее" Grid.Column="3"></Button>
+                        <Button Name="Bt_detail" Click="Bt_detail_Click" Content="Подробнее" Grid.Column="3"></Button>
+                        <Button Visibility="{Binding AdminControlsVisibility}" Content="Удалить" Name="Bt_del" Width="171" Click="Bt_del_Click" Grid.Column="4"/>
+                        <Button Visibility="{Binding AdminControlsVisibility}" Content="Редактировать" Name="Bt_edit" Width="171" Click="Bt_edit_Click" Grid.Column="5"/>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>

@@ -64,7 +64,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Pages\Add_category.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Add_game.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Add_manufacture.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -123,8 +131,14 @@
     <Compile Include="Entities\Order.cs">
       <DependentUpon>GamesModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Add_category.xaml.cs">
+      <DependentUpon>Add_category.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Add_game.xaml.cs">
       <DependentUpon>Add_game.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Add_manufacture.xaml.cs">
+      <DependentUpon>Add_manufacture.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Catalog.xaml.cs">
       <DependentUpon>Catalog.xaml</DependentUpon>
