@@ -79,5 +79,15 @@ namespace Games.Pages
             var up_games = App.db.Games.ToList();
             listviewGame.ItemsSource = up_games;
         }
+
+        private void Bt_add_cat_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Add_category());
+        }
+
+        private void Bt_add_man_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Add_manufacture());
+        }
     }
 }
