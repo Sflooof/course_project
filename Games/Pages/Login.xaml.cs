@@ -32,7 +32,6 @@ namespace Games.Pages
             {
                 
                 App.CurrentUser = currect_user;
-                //NavigationService.Navigate(new Catalog());
                 Windows.Game game = new Windows.Game();
                 game.Show();
                 Window.GetWindow(this).Close();

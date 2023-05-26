@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Games.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,7 @@ namespace Games.Pages
                 Bt_add.Visibility = Visibility.Collapsed;
             }
             game1 = App.db.Games.ToList().FirstOrDefault();
+            //var all_type = App.db.Games.get
         }
 
         //private void Button_Click(object sender, RoutedEventArgs e)
@@ -67,7 +69,7 @@ namespace Games.Pages
 
         private void Bt_add_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Add_game(null));
+            NavigationService.Navigate(new Add_game());
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -88,6 +90,23 @@ namespace Games.Pages
         private void Bt_add_man_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new Add_manufacture());
+        }
+
+        private void TB_find_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                listviewGame.ItemsSource = App.db.Games.Where(item => item.name == TB_find.Text || item.name.Contains(TB_find.Text)).ToArray();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButton.OK);
+            }
+        }
+
+        private void Combo_type_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
