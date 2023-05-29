@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Games.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Game_detail">
+      Title="Подробные сведения">
 
     <Grid>
         <Grid.RowDefinitions>

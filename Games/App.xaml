@@ -15,6 +15,17 @@
             <Setter Property="TextAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="#50341A"/>
         </Style>
+        <Style TargetType="TextBlock" x:Key="ForAdd">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Width" Value="170"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="#50341A"/>
+        </Style>
         <Style TargetType="Button">
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="FontFamily" Value="Times New Roman"/>

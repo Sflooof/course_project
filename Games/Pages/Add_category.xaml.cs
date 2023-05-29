@@ -17,14 +17,14 @@ using System.Windows.Shapes;
 namespace Games.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для Add_category.xaml
+    /// Логика взаимодействия для Add_category1.xaml
     /// </summary>
-    public partial class Add_category : Window
+    public partial class Add_category1 : Page
     {
         private Entities.Category curr_cat = null;
         Regex name = new Regex(@"^[а-яё]+$");
         MatchCollection match;
-        public Add_category()
+        public Add_category1()
         {
             InitializeComponent();
         }
@@ -64,14 +64,14 @@ namespace Games.Pages
                 {
                     curr_cat.name = Txt_name.Text;
                 }
-                
-                
+
+
             }
         }
 
         private void Btn_back_Click(object sender, RoutedEventArgs e)
         {
-            
+            NavigationService.GoBack();
         }
 
         private string CheckErrors()
@@ -81,7 +81,7 @@ namespace Games.Pages
                 errorBuilder.AppendLine("Поле обязательно для заполнения.");
             match = name.Matches(Txt_name.Text);
             if (match.Count == 0)
-                errorBuilder.AppendLine("Некорректно введено имя.");
+                errorBuilder.AppendLine("Некорректно введено назвоние категории.");
 
             if (errorBuilder.Length > 0)
                 errorBuilder.Insert(0, "Устраните следующие ошибки:\n");

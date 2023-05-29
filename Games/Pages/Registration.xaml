@@ -6,33 +6,33 @@
       xmlns:local="clr-namespace:Games.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Registration">
+      Title="Регистарация">
 
     <Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel VerticalAlignment="Center" Width="500">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Фамилия*"></TextBlock>
+                    <TextBlock Style="{StaticResource ForAdd}" Text="Фамилия*"></TextBlock>
                     <TextBox Name="Txt_surname" Margin="5" Height="25" Width="300"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Имя*"></TextBlock>
+                    <TextBlock Style="{StaticResource ForAdd}" Text="Имя*"></TextBlock>
                     <TextBox Name="Txt_name" Margin="5" Height="25" Width="300"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Отчество"></TextBlock>
+                    <TextBlock Style="{StaticResource ForAdd}" Text="Отчество"></TextBlock>
                     <TextBox Name="Txt_patr" Margin="5" Height="25" Width="300"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Эектронная почта*"></TextBlock>
+                    <TextBlock Style="{StaticResource ForAdd}" Text="Эектронная почта*"></TextBlock>
                     <TextBox Name ="Txt_email" Margin="5" Height="25" Width="300"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Пароль*"></TextBlock>
+                    <TextBlock Style="{StaticResource ForAdd}" Text="Пароль*"></TextBlock>
                     <PasswordBox Name ="Txt_password" MaxLength="50" Margin="5" Height="25" Width="300"></PasswordBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="Подтверждение пароля*"></TextBlock>
+                    <TextBlock Style="{StaticResource ForAdd}" Text="Подтверждение пароля*"></TextBlock>
                     <PasswordBox Name ="Txt_right_password" MaxLength="50" Margin="5" Height="25" Width="300"></PasswordBox>
                 </StackPanel>
                 <Button x:Name="SaveBtn" Click="SaveBtn_Click" Content="Coxpанить"/>

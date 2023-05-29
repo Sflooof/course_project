@@ -57,7 +57,31 @@ namespace Games.Pages
 
         private void Bt_del_Click(object sender, RoutedEventArgs e)
         {
-
+            var current_games = (sender as Button).DataContext as Entities.Game;
+            if (MessageBox.Show($"Вы уверены, что хотите удалить машину: {current_games.name} " +
+                    $"{current_games.manufacturer}?",
+                    "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                App.db.Games.Remove(current_games);
+                App.db.SaveChanges();
+                UpdateGames();
+            }
+            //var current_games = (sender as Button).DataContext as Entities.Game;
+            //if (App.db.Games.FirstOrDefault(p => p.Article ==  current_games.Article) == null)
+            //{
+            //    if (MessageBox.Show($"Вы уверены, что хотите удалить товар: {current_games.name}\nАртикул: " +
+            //        $"{current_games.name}?",
+            //        "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            //    {
+            //        App.db.Games.Remove(current_games);
+            //        App.db.SaveChanges();
+            //        UpdateGames();
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Нельзя удалить товар\nПричина: на данный товар существует заказ", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //}
         }
 
         private void Bt_edit_Click(object sender, RoutedEventArgs e)
@@ -84,12 +108,12 @@ namespace Games.Pages
 
         private void Bt_add_cat_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Add_category());
+            NavigationService.Navigate(new Add_category1());
         }
 
         private void Bt_add_man_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Add_manufacture());
+            NavigationService.Navigate(new Add_manufacture1());
         }
 
         private void TB_find_TextChanged(object sender, TextChangedEventArgs e)
@@ -106,7 +130,25 @@ namespace Games.Pages
 
         private void Combo_type_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            UpdateGames();
+        }
+        
+        private void UpdateGames()
+        {
+            var games = App.db.Games.ToList();
+            if (Combo_type.SelectedIndex == 0)
+            {
+                games = games.OrderBy(p => p.release_year).ToList();
+            }
+            else if (Combo_type.SelectedIndex == 1)
+            {
+                games = games.OrderBy(p => p.cost).ToList();
+            }
+            else
+            {
+                games = games.OrderByDescending(p => p.cost).ToList();
+            }
+            listviewGame.ItemsSource = games;
         }
     }
 }
