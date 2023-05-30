@@ -16,34 +16,42 @@
         <Grid Grid.Row="1" Background="#FF9F40">
             <Button Content="Назад" Name="Bt_back" HorizontalAlignment="Left"  Width="171" Click="Bt_back_Click" Margin="5,0,0,3" VerticalAlignment="Bottom"/>
         </Grid>
-        <ListView x:Name="listviewGame" Grid.Row="0" SelectionChanged="listviewGame_SelectionChanged">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Margin="20" Width="850">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                            <RowDefinition Height="*"></RowDefinition>
-                        </Grid.RowDefinitions>
-                        <Image Width="150" Grid.Row="0"  HorizontalAlignment="Center" >
-                            <Image.Source>
-                                <Binding Path="CorrectImg"></Binding>
-                            </Image.Source>
-                        </Image>
-                        <TextBlock Text="{Binding name}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Row="1"></TextBlock>
-                        <TextBlock Text="{Binding description}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Row="2"></TextBlock>
-                        <TextBlock Text="{Binding equipment}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Row="3"></TextBlock>
-                        <TextBlock Text="{Binding category}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Row="4"></TextBlock>
-                        <TextBlock Text="{Binding manufacturer}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Row="5"></TextBlock>
-                        <TextBlock Text="{Binding release_year}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Row="6"></TextBlock>
-                        <TextBlock Text="{Binding cost}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Row="7"></TextBlock>
-                    </Grid>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <ScrollViewer>
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <Image Name ="Img_photo"  Height="190" Width="190" Grid.RowSpan="3" HorizontalAlignment="Left" ></Image>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Название:" FontWeight="Bold"></TextBlock>
+                    <TextBlock Name = "name" VerticalAlignment="Center" HorizontalAlignment="Left" Width="auto" Margin="5 5" ></TextBlock>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Категория:" FontWeight="Bold"></TextBlock>
+                    <TextBlock Name = "category" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5 5" ></TextBlock>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Производитель:" FontWeight="Bold"></TextBlock>
+                    <TextBlock Name = "manufacturer" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5 5" ></TextBlock>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Описание:" FontWeight="Bold"></TextBlock>
+                <TextBlock Name = "description" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5 5" ></TextBlock>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Содержание:" FontWeight="Bold"></TextBlock>
+                <TextBlock Name = "equipment" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5 5" ></TextBlock>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Год выпуска:" FontWeight="Bold"></TextBlock>
+                <TextBlock Name = "release_year" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5 5" ></TextBlock>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Цена (в рублях):" FontWeight="Bold"></TextBlock>
+                <TextBlock Name = "cost" VerticalAlignment="Center" TextAlignment="Left" Width="auto" Margin="5 5" ></TextBlock>
+            </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>

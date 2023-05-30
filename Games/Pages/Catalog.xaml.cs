@@ -31,13 +31,8 @@ namespace Games.Pages
                 Bt_add.Visibility = Visibility.Collapsed;
             }
             game1 = App.db.Games.ToList().FirstOrDefault();
-            //var all_type = App.db.Games.get
         }
 
-        //private void Button_Click(object sender, RoutedEventArgs e)
-        //{
-        //        NavigationService.Navigate(new Add_game());
-        //}
 
 
         private void listviewGame_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -47,7 +42,9 @@ namespace Games.Pages
 
         private void Bt_detail_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Game_detail());
+            var button = sender as Button;
+            var currentProduct = button.DataContext as Game;
+            NavigationService.Navigate(new Game_detail(currentProduct));
         }
 
         private void Bt_back_Click(object sender, RoutedEventArgs e)
@@ -66,22 +63,6 @@ namespace Games.Pages
                 App.db.SaveChanges();
                 UpdateGames();
             }
-            //var current_games = (sender as Button).DataContext as Entities.Game;
-            //if (App.db.Games.FirstOrDefault(p => p.Article ==  current_games.Article) == null)
-            //{
-            //    if (MessageBox.Show($"Вы уверены, что хотите удалить товар: {current_games.name}\nАртикул: " +
-            //        $"{current_games.name}?",
-            //        "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
-            //    {
-            //        App.db.Games.Remove(current_games);
-            //        App.db.SaveChanges();
-            //        UpdateGames();
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Нельзя удалить товар\nПричина: на данный товар существует заказ", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            //}
         }
 
         private void Bt_edit_Click(object sender, RoutedEventArgs e)
@@ -103,6 +84,7 @@ namespace Games.Pages
         private void Update()
         {
             var up_games = App.db.Games.ToList();
+
             listviewGame.ItemsSource = up_games;
         }
 

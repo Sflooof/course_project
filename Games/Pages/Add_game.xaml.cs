@@ -46,7 +46,7 @@ namespace Games.Pages
                 if (curr_game.photo != null)
                 {
                     Img_photo.Source = new ImageSourceConverter()
-                        .ConvertFrom(img) as ImageSource;
+                        .ConvertFrom(path + curr_game.photo) as ImageSource;
                 }
             }
         }
