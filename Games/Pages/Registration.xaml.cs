@@ -106,7 +106,7 @@ namespace Games.Pages
                         };
                     }
 
-                    App.db.Users.Add(user);
+                    App.db.User.Add(user);
                     App.db.SaveChanges();
                     MessageBox.Show("Пользователь успешно создан", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 }

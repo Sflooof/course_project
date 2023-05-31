@@ -56,7 +56,7 @@ namespace Games.Pages
                         };
                     }
 
-                    App.db.Categories.Add(category);
+                    App.db.Category.Add(category);
                     App.db.SaveChanges();
                     MessageBox.Show("Категория успешно создана", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 }

@@ -105,31 +105,31 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Entities\Category.cs">
-      <DependentUpon>GamesModel.tt</DependentUpon>
+      <DependentUpon>GamesModel2.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Game.cs">
-      <DependentUpon>GamesModel.tt</DependentUpon>
+      <DependentUpon>GamesModel2.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\GamesModel.Context.cs">
+    <Compile Include="Entities\GamesModel2.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GamesModel.Context.tt</DependentUpon>
+      <DependentUpon>GamesModel2.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\GamesModel.cs">
+    <Compile Include="Entities\GamesModel2.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GamesModel.tt</DependentUpon>
+      <DependentUpon>GamesModel2.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\GamesModel.Designer.cs">
+    <Compile Include="Entities\GamesModel2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GamesModel.edmx</DependentUpon>
+      <DependentUpon>GamesModel2.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entities\Manufacturer.cs">
-      <DependentUpon>GamesModel.tt</DependentUpon>
+      <DependentUpon>GamesModel2.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Order.cs">
-      <DependentUpon>GamesModel.tt</DependentUpon>
+      <DependentUpon>GamesModel2.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\Add_category.xaml.cs">
       <DependentUpon>Add_category.xaml</DependentUpon>
@@ -149,17 +149,17 @@
     <Compile Include="Pages\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Role.cs">
-      <DependentUpon>GamesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\sysdiagram.cs">
-      <DependentUpon>GamesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\User.cs">
-      <DependentUpon>GamesModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Role.cs">
+      <DependentUpon>GamesModel2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sysdiagrams.cs">
+      <DependentUpon>GamesModel2.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\User.cs">
+      <DependentUpon>GamesModel2.tt</DependentUpon>
     </Compile>
     <Compile Include="Windows\Game.xaml.cs">
       <DependentUpon>Game.xaml</DependentUpon>
@@ -187,12 +187,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Entities\GamesModel.edmx">
+    <EntityDeploy Include="Entities\GamesModel2.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GamesModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>GamesModel2.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Entities\GamesModel.edmx.diagram">
-      <DependentUpon>GamesModel.edmx</DependentUpon>
+    <None Include="Entities\GamesModel2.edmx.diagram">
+      <DependentUpon>GamesModel2.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -220,15 +220,15 @@
     <Resource Include="Resources\p9.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Entities\GamesModel.Context.tt">
+    <Content Include="Entities\GamesModel2.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>GamesModel.Context.cs</LastGenOutput>
-      <DependentUpon>GamesModel.edmx</DependentUpon>
+      <DependentUpon>GamesModel2.edmx</DependentUpon>
+      <LastGenOutput>GamesModel2.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Entities\GamesModel.tt">
+    <Content Include="Entities\GamesModel2.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GamesModel.edmx</DependentUpon>
-      <LastGenOutput>GamesModel.cs</LastGenOutput>
+      <DependentUpon>GamesModel2.edmx</DependentUpon>
+      <LastGenOutput>GamesModel2.cs</LastGenOutput>
     </Content>
     <Resource Include="Windows\icons8-rubik_s-cube-66.ico" />
     <Resource Include="Resources\no.jpg" />

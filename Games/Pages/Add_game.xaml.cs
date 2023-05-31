@@ -25,12 +25,9 @@ namespace Games.Pages
     /// </summary>
     public partial class Add_game : Page
     {
-        private Entities.Game curr_game = null;
+        private Game curr_game = null;
         private byte[] img = null;
-        public string path = Path.Combine(Directory.GetParent(Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).FullName)).FullName, @"Resources\");
-        //public string img_cur = null;
         private Game game = new Game();
-        string photoName;
         public Add_game(Entities.Game game)
         {
             InitializeComponent();
@@ -43,10 +40,11 @@ namespace Games.Pages
                 Cb_category.SelectedIndex = curr_game.category - 1;
                 Cb_manufacturer.SelectedIndex = curr_game.manufacturer - 1;
                 Txt_release_year.Text = curr_game.release_year.ToString();
+                Txt_coust.Text = curr_game.cost.ToString();
                 if (curr_game.photo != null)
                 {
                     Img_photo.Source = new ImageSourceConverter()
-                        .ConvertFrom(path + curr_game.photo) as ImageSource;
+                        .ConvertFrom(curr_game.photo) as ImageSource;
                 }
             }
         }
@@ -70,8 +68,8 @@ namespace Games.Pages
             }
             else
             {
-                var category = App.db.Categories.Where(c => c.name == Cb_category.SelectedItem.ToString()).FirstOrDefault();
-                var manufacturer = App.db.Manufacturers.Where(c => c.name == Cb_manufacturer.SelectedItem.ToString()).FirstOrDefault();
+                var category = App.db.Category.Where(c => c.name == Cb_category.SelectedItem.ToString()).FirstOrDefault();
+                var manufacturer = App.db.Manufacturer.Where(c => c.name == Cb_manufacturer.SelectedItem.ToString()).FirstOrDefault();
                 if (curr_game == null)
                 {
                     var car = new Entities.Game
@@ -83,10 +81,10 @@ namespace Games.Pages
                         manufacturer = manufacturer.Id,
                         release_year = DateTime.Parse(Txt_release_year.Text),
                         cost = Convert.ToDecimal(Txt_coust.Text),
-                        photo = photoName
+                        photo = img
                 };
 
-                    App.db.Games.Add(car);
+                    App.db.Game.Add(car);
                     App.db.SaveChanges();
                     MessageBox.Show("Игра успешно добавлена", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -101,7 +99,7 @@ namespace Games.Pages
                     curr_game.cost = Convert.ToDecimal(Txt_coust.Text);
 
                     if (img != null)
-                        curr_game.photo = photoName;
+                        curr_game.photo = img;
                     App.db.SaveChanges();
                     MessageBox.Show("Игра успешно обновлена", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -117,13 +115,18 @@ namespace Games.Pages
             if (file_img.ShowDialog() == true)
             {
                 img = File.ReadAllBytes(file_img.FileName);
-                
+
                 Img_photo.Source = new ImageSourceConverter()
                     .ConvertFrom(img) as ImageSource;
-                photoName = Path.GetFileName(file_img.FileName);
+
                 
-                path += photoName;
-                File.Copy(file_img.FileName, path);
+                //photoName = Path.GetFileName(file_img.FileName);
+
+                //path += photoName;
+                //if (!File.Exists(path))
+                //{
+                //    File.Copy(file_img.FileName, path);
+                //}
                 
             }
         }
@@ -157,8 +160,8 @@ namespace Games.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            var combox_cat = App.db.Categories.OrderBy(p => p.Id).Select(p => p.name).ToArray();
-            var combox_man = App.db.Manufacturers.OrderBy(p => p.Id).Select(p => p.name).ToArray();
+            var combox_cat = App.db.Category.OrderBy(p => p.Id).Select(p => p.name).ToArray();
+            var combox_man = App.db.Manufacturer.OrderBy(p => p.Id).Select(p => p.name).ToArray();
             for (int i = 0; i < combox_cat.Length; i++)
                 Cb_category.Items.Add(combox_cat[i]);
             for (int i = 0; i < combox_man.Length; i++)

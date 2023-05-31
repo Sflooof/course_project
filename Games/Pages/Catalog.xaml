@@ -38,14 +38,15 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
-                            <ColumnDefinition Width="75"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                             <ColumnDefinition Width="*"></ColumnDefinition>
                         </Grid.ColumnDefinitions>
                         <Image Width="150" Grid.Column="0"  HorizontalAlignment="Center" >
                             <Image.Source>
-                                <Binding Path="CorrectImg"></Binding>
+                                <Binding Path="photo">
+                                </Binding>
                             </Image.Source>
                         </Image>
                         <TextBlock Text="{Binding name}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Column="1"></TextBlock>

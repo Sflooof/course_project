@@ -11,17 +11,16 @@ namespace Games.Entities
 {
     using System;
     using System.Collections.Generic;
-    using System.IO.Packaging;
-
+    
     public partial class Game
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Game()
         {
-            this.Orders = new HashSet<Order>();
+            this.Order = new HashSet<Order>();
         }
     
-        public int Article { get; set; }
+        public int Id { get; set; }
         public string name { get; set; }
         public string description { get; set; }
         public string equipment { get; set; }
@@ -29,47 +28,11 @@ namespace Games.Entities
         public int manufacturer { get; set; }
         public System.DateTime release_year { get; set; }
         public decimal cost { get; set; }
-        public string photo { get; set; }
+        public byte[] photo { get; set; }
     
         public virtual Category Category1 { get; set; }
         public virtual Manufacturer Manufacturer1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Orders { get; set; }
-
-        public string CorrectImg
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(photo)|| string.IsNullOrWhiteSpace(photo))
-                {
-                    return "/Resources/no.jpg";
-                }
-                else
-                { 
-                    return "/Resources/" + photo; 
-                }
-            }
-        }
-        public static string AdminControlsVisibility
-        {
-            get
-            {
-                if (App.CurrentUser == null)
-                {
-                    return "Collapsed";
-                }
-                else
-                {
-                    if (App.CurrentUser.role == 1)
-                    {
-                        return "Visible";
-                    }
-                    else
-                    {
-                        return "Collapsed";
-                    }
-                }
-            }
-        }
+        public virtual ICollection<Order> Order { get; set; }
     }
 }

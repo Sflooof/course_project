@@ -5,31 +5,31 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Games.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="550" d:DesignWidth="1200"
       Title="Добавление/Редактирование игры" Loaded="Page_Loaded">
 
     <Grid>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1000" Height="400">
             <StackPanel VerticalAlignment="Center" Width="500">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource ForAdd}" Text="Название*"></TextBlock>
-                    <TextBox Name="Txt_name" Margin="5" Height="25" Width="300"></TextBox>
+                    <TextBlock Style="{StaticResource ForAdd}"  Text="Название*"></TextBlock>
+                    <TextBox Name="Txt_name" Margin="5" Height="35" Width="300"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource ForAdd}" Text="Описание*"></TextBlock>
-                    <TextBox Name="Txt_description" Margin="5" Height="25" Width="300"></TextBox>
+                    <TextBox Name="Txt_description" Margin="5" Height="35" Width="300"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource ForAdd}" Text="Содержимое*"></TextBlock>
-                    <TextBox Name="Txt_equipment" Margin="5" Height="25" Width="300"></TextBox>
+                    <TextBox Name="Txt_equipment" Margin="5" Height="35" Width="300"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource ForAdd}" Text="Категория*"></TextBlock>
-                    <ComboBox Name ="Cb_category" Margin="5" Height="25" Width="300"></ComboBox>
+                    <ComboBox Name ="Cb_category" Margin="5" Height="35" Width="300"></ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource ForAdd}" Text="Производитель*"></TextBlock>
-                    <ComboBox Name ="Cb_manufacturer" Margin="5" Height="25" Width="300"></ComboBox>
+                    <ComboBox Name ="Cb_manufacturer" Margin="5" Height="35" Width="300"></ComboBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource ForAdd}" Text="Год выпуска*"></TextBlock>
@@ -37,10 +37,10 @@
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Style="{StaticResource ForAdd}" Text="Цена*"></TextBlock>
-                    <TextBox Name="Txt_coust" Margin="5" Height="25" Width="300"></TextBox>
+                    <TextBox Name="Txt_coust" Margin="5" Height="35" Width="300"></TextBox>
                 </StackPanel>
             </StackPanel>
-            <StackPanel>
+            <StackPanel VerticalAlignment="Center" Width="500">
                 <TextBlock Style="{StaticResource ForAdd}" Text="Фото игры*"></TextBlock>
                 <Image Name ="Img_photo"  Margin="5" Height="150" Width="150"></Image>
                 <Button x:Name="Btn_img" Click="Btn_img_Click" Content="Выбрать фотографию"/>

@@ -25,12 +25,12 @@ namespace Games.Pages
         public Catalog()
         {
             InitializeComponent();
-            listviewGame.ItemsSource = App.db.Games.ToList();
+            listviewGame.ItemsSource = App.db.Game.ToList();
             if (App.CurrentUser == null || App.CurrentUser.role == 2)
             {
                 Bt_add.Visibility = Visibility.Collapsed;
             }
-            game1 = App.db.Games.ToList().FirstOrDefault();
+            game1 = App.db.Game.ToList().FirstOrDefault();
         }
 
 
@@ -59,7 +59,7 @@ namespace Games.Pages
                     $"{current_games.manufacturer}?",
                     "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
-                App.db.Games.Remove(current_games);
+                App.db.Game.Remove(current_games);
                 App.db.SaveChanges();
                 UpdateGames();
             }
@@ -83,7 +83,7 @@ namespace Games.Pages
         }
         private void Update()
         {
-            var up_games = App.db.Games.ToList();
+            var up_games = App.db.Game.ToList();
 
             listviewGame.ItemsSource = up_games;
         }
@@ -102,7 +102,7 @@ namespace Games.Pages
         {
             try
             {
-                listviewGame.ItemsSource = App.db.Games.Where(item => item.name == TB_find.Text || item.name.Contains(TB_find.Text)).ToArray();
+                listviewGame.ItemsSource = App.db.Game.Where(item => item.name == TB_find.Text || item.name.Contains(TB_find.Text)).ToArray();
             }
             catch (Exception ex)
             {
@@ -117,7 +117,7 @@ namespace Games.Pages
         
         private void UpdateGames()
         {
-            var games = App.db.Games.ToList();
+            var games = App.db.Game.ToList();
             if (Combo_type.SelectedIndex == 0)
             {
                 games = games.OrderBy(p => p.release_year).ToList();
