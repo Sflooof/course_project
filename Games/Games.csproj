@@ -231,7 +231,7 @@
       <LastGenOutput>GamesModel2.cs</LastGenOutput>
     </Content>
     <Resource Include="Windows\icons8-rubik_s-cube-66.ico" />
-    <Resource Include="Resources\no.jpg" />
+    <Resource Include="Pages\no.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

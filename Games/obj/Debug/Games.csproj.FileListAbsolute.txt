@@ -109,3 +109,4 @@ C:\Users\gun4e\source\repos\course_project\Games\obj\Debug\Games.pdb
 C:\Users\10200277\Source\Repos\course_project\Games\obj\Debug\Pages\Add_category.baml
 C:\Users\10200277\Source\Repos\course_project\Games\obj\Debug\Pages\Add_manufacture.baml
 C:\Users\10200277\source\repos\course_project\Games\obj\Debug\Games.csproj.AssemblyReference.cache
+C:\Users\10200277\Source\Repos\course_project\Games\obj\Debug\Games.csproj.SuggestedBindingRedirects.cache

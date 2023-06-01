@@ -46,6 +46,9 @@
                         <Image Width="150" Grid.Column="0"  HorizontalAlignment="Center" >
                             <Image.Source>
                                 <Binding Path="photo">
+                                    <Binding.TargetNullValue>
+                                        <ImageSource>no.jpg</ImageSource>
+                                    </Binding.TargetNullValue>
                                 </Binding>
                             </Image.Source>
                         </Image>
