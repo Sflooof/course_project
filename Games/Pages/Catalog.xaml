@@ -19,7 +19,6 @@
             <Button Content="Добавить категорию" Name="Bt_add_cat" HorizontalAlignment="Right" Width="200" Click="Bt_add_cat_Click" Margin="0,0,205,0" />
             <Button Content="Добавить производителя" Name="Bt_add_man" HorizontalAlignment="Right"  Width="270" Click="Bt_add_man_Click" Margin="0,0,445
                     ,0"/>
-            <Button Content="Назад" Name="Bt_back" HorizontalAlignment="Left"  Width="171" Click="Bt_back_Click" Margin="5,0,0,3" VerticalAlignment="Bottom"/>
         </Grid>
         <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <TextBlock Text="Найти:" ></TextBlock>

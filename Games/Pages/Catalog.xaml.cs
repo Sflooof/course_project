@@ -29,6 +29,8 @@ namespace Games.Pages
             if (App.CurrentUser == null || App.CurrentUser.role == 2)
             {
                 Bt_add.Visibility = Visibility.Collapsed;
+                Bt_add_cat.Visibility = Visibility.Collapsed;
+                Bt_add_man.Visibility = Visibility.Collapsed;
             }
             game1 = App.db.Game.ToList().FirstOrDefault();
         }

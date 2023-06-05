@@ -19,7 +19,20 @@ namespace Games.Entities
         {
             this.Order = new HashSet<Order>();
         }
-    
+        public static string AdminControlsVisibility
+        {
+            get
+            {
+                if (App.CurrentUser.role == 2)
+                {
+                    return "Collapsed";
+                }
+                else
+                {
+                    return "Visible";
+                }
+            }
+        }
         public int Id { get; set; }
         public string name { get; set; }
         public string description { get; set; }
