@@ -28,14 +28,17 @@ namespace Games.Pages
         private void Entry_Click(object sender, RoutedEventArgs e)
         {
             var currect_user = App.db.User.FirstOrDefault(u => u.email == TxbLogin.Text && u.password == TxbPassword.Password );
-            if (currect_user != null)
+            if (TxbLogin.Text == "" || TxbPassword.Password == "")
             {
-                
+                MessageBox.Show("Не все поля заполнены", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (currect_user != null)
+            {
                 App.CurrentUser = currect_user;
                 Windows.Game game = new Windows.Game();
                 game.Show();
                 Window.GetWindow(this).Close();
-            }
+            }      
             else 
             {
                 MessageBox.Show("Пользователя не существует", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);

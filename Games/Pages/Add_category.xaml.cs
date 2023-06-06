@@ -64,8 +64,6 @@ namespace Games.Pages
                 {
                     curr_cat.name = Txt_name.Text;
                 }
-
-
             }
         }
 

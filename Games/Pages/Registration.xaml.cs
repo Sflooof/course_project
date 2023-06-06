@@ -46,8 +46,11 @@ namespace Games.Pages
             if (match.Count == 0)
                 errorBuilder.AppendLine("Некорректно введено имя.");
             match = name.Matches(Txt_patr.Text);
-            if (match.Count == 0)
-                errorBuilder.AppendLine("Некорректно введено отчество.");
+            if (Txt_patr.Text != "")
+            {
+                if (match.Count == 0)
+                    errorBuilder.AppendLine("Некорректно введено отчество.");
+            }
             if (string.IsNullOrWhiteSpace(Txt_email.Text))
                 errorBuilder.AppendLine("Поле обязательно для заполнения.");
             match = email.Matches(Txt_email.Text);

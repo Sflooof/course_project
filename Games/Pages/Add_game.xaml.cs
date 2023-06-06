@@ -119,15 +119,6 @@ namespace Games.Pages
                 Img_photo.Source = new ImageSourceConverter()
                     .ConvertFrom(img) as ImageSource;
 
-                
-                //photoName = Path.GetFileName(file_img.FileName);
-
-                //path += photoName;
-                //if (!File.Exists(path))
-                //{
-                //    File.Copy(file_img.FileName, path);
-                //}
-                
             }
         }
 
