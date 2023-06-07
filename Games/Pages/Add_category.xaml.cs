@@ -22,7 +22,7 @@ namespace Games.Pages
     public partial class Add_category1 : Page
     {
         private Entities.Category curr_cat = null;
-        Regex name = new Regex(@"^[а-яё]+$");
+        Regex name = new Regex(@"^[А-ЯЁ][а-яё]+$");
         MatchCollection match;
         public Add_category1(Entities.Category current_cat)
         {
@@ -71,6 +71,8 @@ namespace Games.Pages
                 else
                 {
                     curr_cat.name = Txt_name.Text;
+                    App.db.SaveChanges();
+                    MessageBox.Show("Категория успешно обновлена", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
         }

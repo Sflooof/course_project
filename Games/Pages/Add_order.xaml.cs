@@ -110,7 +110,7 @@ namespace Games.Pages
                     curr_order.total_cost = decimal.Parse(Txt_cost.Text);
 
                     App.db.SaveChanges();
-                    MessageBox.Show("Заказ успешно создан", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Заказ успешно обновлен", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
 
             }

@@ -22,7 +22,7 @@ namespace Games.Pages
     public partial class Add_manufacture1 : Page
     {
         private Entities.Manufacturer curr_man = null;
-        Regex name = new Regex(@"^[а-яё]|[a-z]+$");
+        Regex name = new Regex(@"^[А-ЯЁ][а-яё]|[A-Z][a-z]+$");
         MatchCollection match;
         public Add_manufacture1(Entities.Manufacturer current_man)
         {
@@ -77,6 +77,7 @@ namespace Games.Pages
                 else
                 {
                     curr_man.name = Txt_name.Text;
+                    MessageBox.Show("Производитель успешно обновлен", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
 

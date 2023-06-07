@@ -38,7 +38,7 @@ namespace Games.Pages
 
         private void Btn_back_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.GoBack();
         }
 
         private void listviewUser_SelectionChanged(object sender, SelectionChangedEventArgs e)

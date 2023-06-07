@@ -15,11 +15,18 @@
             <RowDefinition Height="35"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid Grid.Row="2" Background="#FF9F40">
-            <Button Content="Добавить игру" Name="Bt_add" HorizontalAlignment="Right"  Width="171" Click="Bt_add_Click" Margin="0, 0, 5, 0" VerticalAlignment="Stretch" Height="NaN"/>
-            <Button Content="Таблица Категории" Name="Bt_add_cat" HorizontalAlignment="Right" Width="180" Click="Bt_add_cat_Click" Margin="0,0,235,0" />
-            <Button Content="Таблица Производители" Name="Bt_add_man" HorizontalAlignment="Right"  Width="210" Click="Bt_add_man_Click" Margin="0,0,465,0"/>
-            <Button Content="Таблица Пользователи" Name="Bt_add_user" HorizontalAlignment="Left"  Width="210" Click="Bt_add_user_Click" Margin="5,0,0,0"/>
-            <Button Content="Таблица Заказы" Name="Bt_add_order" HorizontalAlignment="Left"  Width="210" Click="Bt_add_order_Click" Margin="255,0,0,0"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Content="Добавить игру" Name="Bt_add"   Width="171" Click="Bt_add_Click" Grid.Column="4" VerticalAlignment="Stretch" Height="NaN"/>
+            <Button Content="Таблица Категории" Name="Bt_add_cat" Grid.Column="3" Width="180" Click="Bt_add_cat_Click"  />
+            <Button Content="Таблица Производители" Name="Bt_add_man" Grid.Column="2"  Width="210" Click="Bt_add_man_Click" />
+            <Button Content="Таблица Пользователи" Name="Bt_add_user" Grid.Column="1"  Width="210" Click="Bt_add_user_Click" />
+            <Button Content="Таблица Заказы" Name="Bt_add_order" Grid.Column="0"  Width="210" Click="Bt_add_order_Click" />
         </Grid>
         <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
             <TextBlock Text="Найти:" ></TextBlock>
