@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\10200277\Source\Repos\course_project\Games\App.xaml
-91688462496
-2-388284607
-24-985724578
-18-1380024165
-Pages\Add_category.xaml;Pages\Add_game.xaml;Pages\Add_manufacture.xaml;Pages\Catalog.xaml;Pages\Game_detail.xaml;Pages\Login.xaml;Pages\Registration.xaml;Windows\Game.xaml;Windows\Authorization.xaml;
+14-889968863
+2-2082771843
+2992814129
+18-245097375
+Pages\Add_category.xaml;Pages\Add_game.xaml;Pages\Add_manufacture.xaml;Pages\Add_order.xaml;Pages\Catalog.xaml;Pages\Category.xaml;Pages\Game_detail.xaml;Pages\Login.xaml;Pages\Manufacture.xaml;Pages\Order.xaml;Pages\Registration.xaml;Pages\User.xaml;Windows\Game.xaml;Windows\Authorization.xaml;
 
-True
+False
 

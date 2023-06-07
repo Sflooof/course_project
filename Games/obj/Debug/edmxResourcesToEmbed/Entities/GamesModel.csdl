@@ -10,9 +10,9 @@
   </EntityType>
   <EntityType Name="Game">
     <Key>
-      <PropertyRef Name="Article" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Article" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="equipment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
@@ -20,7 +20,7 @@
     <Property Name="manufacturer" Type="Int32" Nullable="false" />
     <Property Name="release_year" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="cost" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
-    <Property Name="photo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="Category1" Relationship="Self.FK_Game_Category" FromRole="Game" ToRole="Category" />
     <NavigationProperty Name="Manufacturer1" Relationship="Self.FK_Game_Manufacturer" FromRole="Game" ToRole="Manufacturer" />
     <NavigationProperty Name="Orders" Relationship="Self.Order_games" FromRole="Game" ToRole="Order" />
@@ -39,7 +39,7 @@
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="users" Type="Int32" Nullable="false" />
-    <Property Name="total_coust" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="total_cost" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_Order_User" FromRole="Order" ToRole="User" />
     <NavigationProperty Name="Games" Relationship="Self.Order_games" FromRole="Order" ToRole="Game" />
   </EntityType>
@@ -127,7 +127,7 @@
     <End Role="Game" Type="Self.Game" Multiplicity="*" />
     <End Role="Order" Type="Self.Order" Multiplicity="*" />
   </Association>
-  <EntityContainer Name="GamesEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="EntitiesGames" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Categories" EntityType="Self.Category" />
     <EntitySet Name="Games" EntityType="Self.Game" />
     <EntitySet Name="Manufacturers" EntityType="Self.Manufacturer" />

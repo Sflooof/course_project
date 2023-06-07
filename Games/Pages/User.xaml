@@ -1,0 +1,51 @@
+﻿<Page x:Class="Games.Pages.User"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Games.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="1200"
+      Title="User" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="White">
+            <TextBlock Text="Пользователи" FontSize="28" HorizontalAlignment="Center"></TextBlock>
+        </Grid>
+        <Grid Grid.Row="2" Background="#FF9F40">
+            <Button x:Name="Btn_back" Click="Btn_back_Click" Content="Назад" HorizontalAlignment="Left" Width="180"/>
+            <Button Content="Добавить пользователя" Name="Bt_add_user" HorizontalAlignment="Right" Width="200" Click="Bt_add_user_Click" Margin="0,0,5,0" />
+        </Grid>
+        <ListView x:Name="listviewUser" Grid.Row="1" SelectionChanged="listviewUser_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="20" Width="1000">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="100"></ColumnDefinition>
+                            <ColumnDefinition Width="180"></ColumnDefinition>
+                            <ColumnDefinition Width="120"></ColumnDefinition>
+                            <ColumnDefinition Width="30"></ColumnDefinition>
+                            <ColumnDefinition Width="171"></ColumnDefinition>
+                            <ColumnDefinition Width="171"></ColumnDefinition>
+                        </Grid.ColumnDefinitions> 
+                        <TextBlock Text="{Binding surname}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Column="0"></TextBlock>
+                        <TextBlock Text="{Binding name}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Column="1"></TextBlock>
+                        <TextBlock Text="{Binding patronymic}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Column="2"></TextBlock>
+                        <TextBlock Text="{Binding email}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Column="3"></TextBlock>
+                        <TextBlock Text="{Binding password}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Column="4"></TextBlock>
+                        <TextBlock Text="{Binding role}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Column="5"></TextBlock>
+                        <Button Content="Удалить" Name="Bt_del" Width="171" Click="Bt_del_Click" Grid.Column="6"/>
+                        <Button Content="Редактировать" Name="Bt_edit" Width="171" Click="Bt_edit_Click" Grid.Column="7"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

@@ -25,14 +25,14 @@ namespace Games.Pages
         public Catalog()
         {
             InitializeComponent();
-            listviewGame.ItemsSource = App.db.Game.ToList();
+            listviewGame.ItemsSource = App.db.Games.ToList();
             if (App.CurrentUser == null || App.CurrentUser.role == 2)
             {
                 Bt_add.Visibility = Visibility.Collapsed;
                 Bt_add_cat.Visibility = Visibility.Collapsed;
                 Bt_add_man.Visibility = Visibility.Collapsed;
             }
-            game1 = App.db.Game.ToList().FirstOrDefault();
+            game1 = App.db.Games.ToList().FirstOrDefault();
         }
 
 
@@ -57,11 +57,11 @@ namespace Games.Pages
         private void Bt_del_Click(object sender, RoutedEventArgs e)
         {
             var current_games = (sender as Button).DataContext as Entities.Game;
-            if (MessageBox.Show($"Вы уверены, что хотите удалить машину: {current_games.name} " +
+            if (MessageBox.Show($"Вы уверены, что хотите удалить игру: {current_games.name} " +
                     $"{current_games.manufacturer}?",
                     "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
-                App.db.Game.Remove(current_games);
+                App.db.Games.Remove(current_games);
                 App.db.SaveChanges();
                 UpdateGames();
             }
@@ -85,26 +85,26 @@ namespace Games.Pages
         }
         private void Update()
         {
-            var up_games = App.db.Game.ToList();
+            var up_games = App.db.Games.ToList();
 
             listviewGame.ItemsSource = up_games;
         }
 
         private void Bt_add_cat_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Add_category1());
+            NavigationService.Navigate(new Category());
         }
 
         private void Bt_add_man_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Add_manufacture1());
+            NavigationService.Navigate(new Manufacture());
         }
 
         private void TB_find_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
             {
-                listviewGame.ItemsSource = App.db.Game.Where(item => item.name == TB_find.Text || item.name.Contains(TB_find.Text)).ToArray();
+                listviewGame.ItemsSource = App.db.Games.Where(item => item.name == TB_find.Text || item.name.Contains(TB_find.Text)).ToArray();
             }
             catch (Exception ex)
             {
@@ -119,7 +119,7 @@ namespace Games.Pages
         
         private void UpdateGames()
         {
-            var games = App.db.Game.ToList();
+            var games = App.db.Games.ToList();
             if (Combo_type.SelectedIndex == 0)
             {
                 games = games.OrderBy(p => p.release_year).ToList();
@@ -133,6 +133,16 @@ namespace Games.Pages
                 games = games.OrderByDescending(p => p.cost).ToList();
             }
             listviewGame.ItemsSource = games;
+        }
+
+        private void Bt_add_user_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new User());
+        }
+
+        private void Bt_add_order_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Order());
         }
     }
 }

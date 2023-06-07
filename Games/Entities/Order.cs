@@ -17,15 +17,20 @@ namespace Games.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Order()
         {
-            this.Game = new HashSet<Game>();
+            this.Games = new HashSet<Game>();
         }
     
         public int Id { get; set; }
         public int users { get; set; }
-        public decimal total_coust { get; set; }
+        public decimal total_cost { get; set; }
+        public string name_user
+        {
+            get
+            { return User.surname.ToString(); }
+        }
     
         public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Game> Game { get; set; }
+        public virtual ICollection<Game> Games { get; set; }
     }
 }

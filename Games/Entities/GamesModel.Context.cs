@@ -13,10 +13,10 @@ namespace Games.Entities
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class GamesEntities2 : DbContext
+    public partial class EntitiesGames : DbContext
     {
-        public GamesEntities2()
-            : base("name=GamesEntities2")
+        public EntitiesGames()
+            : base("name=EntitiesGames")
         {
         }
     
@@ -25,12 +25,12 @@ namespace Games.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Category> Category { get; set; }
-        public virtual DbSet<Game> Game { get; set; }
-        public virtual DbSet<Manufacturer> Manufacturer { get; set; }
-        public virtual DbSet<Order> Order { get; set; }
-        public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Game> Games { get; set; }
+        public virtual DbSet<Manufacturer> Manufacturers { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

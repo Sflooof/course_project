@@ -17,13 +17,13 @@ namespace Games.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Manufacturer()
         {
-            this.Game = new HashSet<Game>();
+            this.Games = new HashSet<Game>();
         }
     
         public int Id { get; set; }
         public string name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Game> Game { get; set; }
+        public virtual ICollection<Game> Games { get; set; }
     }
 }

@@ -38,9 +38,9 @@ namespace Games.Pages
                 name.Text = game.name;
                 description.Text = game.description;
                 equipment.Text = game.equipment;
-                var cur_category = App.db.Category.Where(m => m.Id == game.category).FirstOrDefault();
+                var cur_category = App.db.Categories.Where(m => m.Id == game.category).FirstOrDefault();
                 category.Text = cur_category.name;
-                var cur_manufacturer = App.db.Manufacturer.Where(m => m.Id == game.manufacturer).FirstOrDefault();
+                var cur_manufacturer = App.db.Manufacturers.Where(m => m.Id == game.manufacturer).FirstOrDefault();
                 manufacturer.Text = cur_manufacturer.name;
                 release_year.Text = game.release_year.ToString();
                 cost.Text = game.cost.ToString();

@@ -76,7 +76,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Add_order.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Catalog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Category.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -88,7 +96,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Manufacture.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Order.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\User.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -105,31 +125,40 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Entities\Category.cs">
-      <DependentUpon>GamesModel2.tt</DependentUpon>
+      <DependentUpon>GamesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Game.cs">
-      <DependentUpon>GamesModel2.tt</DependentUpon>
+      <DependentUpon>GamesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\GamesModel2.Context.cs">
+    <Compile Include="Entities\GamesModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GamesModel2.Context.tt</DependentUpon>
+      <DependentUpon>GamesModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\GamesModel2.cs">
+    <Compile Include="Entities\GamesModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GamesModel2.tt</DependentUpon>
+      <DependentUpon>GamesModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\GamesModel2.Designer.cs">
+    <Compile Include="Entities\GamesModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GamesModel2.edmx</DependentUpon>
+      <DependentUpon>GamesModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entities\Manufacturer.cs">
-      <DependentUpon>GamesModel2.tt</DependentUpon>
+      <DependentUpon>GamesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Order.cs">
-      <DependentUpon>GamesModel2.tt</DependentUpon>
+      <DependentUpon>GamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\Role.cs">
+      <DependentUpon>GamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\sysdiagram.cs">
+      <DependentUpon>GamesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\User.cs">
+      <DependentUpon>GamesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Pages\Add_category.xaml.cs">
       <DependentUpon>Add_category.xaml</DependentUpon>
@@ -140,8 +169,14 @@
     <Compile Include="Pages\Add_manufacture.xaml.cs">
       <DependentUpon>Add_manufacture.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Add_order.xaml.cs">
+      <DependentUpon>Add_order.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Catalog.xaml.cs">
       <DependentUpon>Catalog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Category.xaml.cs">
+      <DependentUpon>Category.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Game_detail.xaml.cs">
       <DependentUpon>Game_detail.xaml</DependentUpon>
@@ -149,17 +184,17 @@
     <Compile Include="Pages\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Manufacture.xaml.cs">
+      <DependentUpon>Manufacture.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Order.xaml.cs">
+      <DependentUpon>Order.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Registration.xaml.cs">
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Role.cs">
-      <DependentUpon>GamesModel2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\sysdiagrams.cs">
-      <DependentUpon>GamesModel2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\User.cs">
-      <DependentUpon>GamesModel2.tt</DependentUpon>
+    <Compile Include="Pages\User.xaml.cs">
+      <DependentUpon>User.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\Game.xaml.cs">
       <DependentUpon>Game.xaml</DependentUpon>
@@ -187,12 +222,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Entities\GamesModel2.edmx">
+    <EntityDeploy Include="Entities\GamesModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>GamesModel2.Designer.cs</LastGenOutput>
+      <LastGenOutput>GamesModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Entities\GamesModel2.edmx.diagram">
-      <DependentUpon>GamesModel2.edmx</DependentUpon>
+    <None Include="Entities\GamesModel.edmx.diagram">
+      <DependentUpon>GamesModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -203,7 +238,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Entities\GamesModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GamesModel.edmx</DependentUpon>
+      <LastGenOutput>GamesModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Entities\GamesModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>GamesModel.edmx</DependentUpon>
+      <LastGenOutput>GamesModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\icon.png" />
   </ItemGroup>
@@ -220,16 +266,6 @@
     <Resource Include="Resources\p9.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Entities\GamesModel2.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GamesModel2.edmx</DependentUpon>
-      <LastGenOutput>GamesModel2.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Entities\GamesModel2.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>GamesModel2.edmx</DependentUpon>
-      <LastGenOutput>GamesModel2.cs</LastGenOutput>
-    </Content>
     <Resource Include="Windows\icons8-rubik_s-cube-66.ico" />
     <Resource Include="Pages\no.jpg" />
   </ItemGroup>

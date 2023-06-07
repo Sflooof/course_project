@@ -15,7 +15,7 @@ namespace Games
     /// </summary>
     public partial class App : Application
     {
-        public static GamesEntities2 db {  get; } = new GamesEntities2();
+        public static EntitiesGames db {  get; } = new EntitiesGames();
         public static User CurrentUser = null;
     }
 }

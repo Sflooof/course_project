@@ -68,8 +68,8 @@ namespace Games.Pages
             }
             else
             {
-                var category = App.db.Category.Where(c => c.name == Cb_category.SelectedItem.ToString()).FirstOrDefault();
-                var manufacturer = App.db.Manufacturer.Where(c => c.name == Cb_manufacturer.SelectedItem.ToString()).FirstOrDefault();
+                var category = App.db.Categories.Where(c => c.name == Cb_category.SelectedItem.ToString()).FirstOrDefault();
+                var manufacturer = App.db.Manufacturers.Where(c => c.name == Cb_manufacturer.SelectedItem.ToString()).FirstOrDefault();
                 if (curr_game == null)
                 {
                     var car = new Entities.Game
@@ -84,7 +84,7 @@ namespace Games.Pages
                         photo = img
                 };
 
-                    App.db.Game.Add(car);
+                    App.db.Games.Add(car);
                     App.db.SaveChanges();
                     MessageBox.Show("Игра успешно добавлена", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
@@ -151,8 +151,8 @@ namespace Games.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            var combox_cat = App.db.Category.OrderBy(p => p.Id).Select(p => p.name).ToArray();
-            var combox_man = App.db.Manufacturer.OrderBy(p => p.Id).Select(p => p.name).ToArray();
+            var combox_cat = App.db.Categories.OrderBy(p => p.Id).Select(p => p.name).ToArray();
+            var combox_man = App.db.Manufacturers.OrderBy(p => p.Id).Select(p => p.name).ToArray();
             for (int i = 0; i < combox_cat.Length; i++)
                 Cb_category.Items.Add(combox_cat[i]);
             for (int i = 0; i < combox_man.Length; i++)

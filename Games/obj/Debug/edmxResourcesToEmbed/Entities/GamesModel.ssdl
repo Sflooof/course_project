@@ -9,9 +9,9 @@
   </EntityType>
   <EntityType Name="Game">
     <Key>
-      <PropertyRef Name="Article" />
+      <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Article" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="name" Type="nvarchar(max)" Nullable="false" />
     <Property Name="description" Type="nvarchar(max)" Nullable="false" />
     <Property Name="equipment" Type="nvarchar(max)" Nullable="false" />
@@ -19,7 +19,7 @@
     <Property Name="manufacturer" Type="int" Nullable="false" />
     <Property Name="release_year" Type="date" Nullable="false" />
     <Property Name="cost" Type="decimal" Precision="18" Scale="2" Nullable="false" />
-    <Property Name="photo" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="photo" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Manufacturer">
     <Key>
@@ -34,14 +34,14 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="users" Type="int" Nullable="false" />
-    <Property Name="total_coust" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="total_cost" Type="decimal" Precision="18" Scale="2" Nullable="false" />
   </EntityType>
   <EntityType Name="Order_games">
     <Key>
       <PropertyRef Name="game_Id" />
       <PropertyRef Name="order_Id" />
     </Key>
-    <Property Name="game_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="game_Id" Type="int" Nullable="false" />
     <Property Name="order_Id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Role">
@@ -102,7 +102,7 @@
     <End Role="Order_games" Type="Self.Order_games" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Game">
-        <PropertyRef Name="Article" />
+        <PropertyRef Name="Id" />
       </Principal>
       <Dependent Role="Order_games">
         <PropertyRef Name="game_Id" />

@@ -1,0 +1,41 @@
+﻿<Page x:Class="Games.Pages.Manufacture"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Games.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="1200"
+      Title="Manufacture"  Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="White">
+            <TextBlock Text="Производители" FontSize="28" HorizontalAlignment="Center"></TextBlock>
+        </Grid>
+        <Grid Grid.Row="2" Background="#FF9F40">
+            <Button x:Name="Btn_back" Click="Btn_back_Click" Content="Назад" HorizontalAlignment="Left" Width="180"/>
+            <Button Content="Добавить производителя" Name="Bt_add_man" HorizontalAlignment="Right" Width="240" Click="Bt_add_man_Click" Margin="0,0,5,0" />
+        </Grid>
+        <ListView x:Name="listviewManufacture" Grid.Row="1" SelectionChanged="listviewManufacture_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Margin="20" Width="850">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding name}" VerticalAlignment="Center" TextAlignment="Center" Width="auto" Margin="5 5" Grid.Column="0"></TextBlock>
+                        <Button Content="Удалить" Name="Bt_del" Width="171" Click="Bt_del_Click" Grid.Column="1"/>
+                        <Button Content="Редактировать" Name="Bt_edit" Width="171" Click="Bt_edit_Click" Grid.Column="2"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

@@ -24,6 +24,15 @@ namespace Games.Pages
         private Entities.Manufacturer curr_man = null;
         Regex name = new Regex(@"^[а-яё]|[a-z]+$");
         MatchCollection match;
+        public Add_manufacture1(Entities.Manufacturer current_man)
+        {
+            InitializeComponent();
+            if (current_man != null)
+            {
+                curr_man = current_man;
+                Txt_name.Text = curr_man.name;
+            }
+        }
         public Add_manufacture1()
         {
             InitializeComponent();
@@ -45,23 +54,23 @@ namespace Games.Pages
             {
                 if (curr_man == null)
                 {
-                    var category = new Entities.Category { };
+                    var manuf = new Entities.Manufacturer { };
                     if (Txt_name.Text == "")
                     {
-                        category = new Entities.Category
+                        manuf = new Entities.Manufacturer
                         {
                             name = Txt_name.Text
                         };
                     }
                     else
                     {
-                        category = new Entities.Category
+                        manuf = new Entities.Manufacturer
                         {
                             name = Txt_name.Text
                         };
                     }
 
-                    App.db.Category.Add(category);
+                    App.db.Manufacturers.Add(manuf);
                     App.db.SaveChanges();
                     MessageBox.Show("Производитель успешно создан", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 }

@@ -24,11 +24,19 @@ namespace Games.Pages
         private Entities.Category curr_cat = null;
         Regex name = new Regex(@"^[а-яё]+$");
         MatchCollection match;
+        public Add_category1(Entities.Category current_cat)
+        {
+            InitializeComponent();
+            if (current_cat != null)
+            {
+                curr_cat = current_cat;
+                Txt_name.Text = curr_cat.name;
+            }
+        }
         public Add_category1()
         {
             InitializeComponent();
         }
-
         private void SaveBtn_Click(object sender, RoutedEventArgs e)
         {
             var error = CheckErrors();
@@ -56,7 +64,7 @@ namespace Games.Pages
                         };
                     }
 
-                    App.db.Category.Add(category);
+                    App.db.Categories.Add(category);
                     App.db.SaveChanges();
                     MessageBox.Show("Категория успешно создана", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 }

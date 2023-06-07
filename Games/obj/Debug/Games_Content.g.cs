@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entities/gamesmodel2.context.tt")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entities/gamesmodel2.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entities/gamesmodel.context.tt")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("entities/gamesmodel.tt")]
 
 

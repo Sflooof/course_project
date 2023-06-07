@@ -21,7 +21,7 @@ namespace Games.Pages
     /// </summary>
     public partial class Registration : Page
     {
-        private Entities.User add_user = null;
+        private Entities.User curr_user = null;
         private byte[] img = null;
         Regex pass = new Regex(@"^\w{4,50}$");
         Regex email = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
@@ -30,6 +30,20 @@ namespace Games.Pages
         public Registration()
         {
             InitializeComponent();
+        }
+
+        public Registration(Entities.User add_user)
+        {
+            InitializeComponent();
+            if (add_user != null)
+            {
+                curr_user = add_user;
+                Txt_surname.Text = curr_user.surname;
+                Txt_name.Text = curr_user.name;
+                Txt_patr.Text = curr_user.patronymic;
+                Txt_email.Text = curr_user.email;
+                Txt_password.Password = curr_user.password;
+            }
         }
 
         private string CheckErrors()
@@ -81,7 +95,7 @@ namespace Games.Pages
             }
             else
             {
-                if (add_user == null)
+                if (curr_user == null)
                 {
                     var user = new Entities.User { };
                     if (Txt_patr.Text == "")
@@ -109,17 +123,17 @@ namespace Games.Pages
                         };
                     }
 
-                    App.db.User.Add(user);
+                    App.db.Users.Add(user);
                     App.db.SaveChanges();
                     MessageBox.Show("Пользователь успешно создан", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
-                    add_user.surname = Txt_surname.Text;
-                    add_user.name = Txt_name.Text;
-                    add_user.patronymic = Txt_patr.Text;
-                    add_user.email = Txt_email.Text;
-                    add_user.password = Txt_password.Password;
+                    curr_user.surname = Txt_surname.Text;
+                    curr_user.name = Txt_name.Text;
+                    curr_user.patronymic = Txt_patr.Text;
+                    curr_user.email = Txt_email.Text;
+                    curr_user.password = Txt_password.Password;
                 }   
                 NavigationService.GoBack();
             }
@@ -127,11 +141,7 @@ namespace Games.Pages
 
         private void Btn_back_Click(object sender, RoutedEventArgs e)
         {
-            if (MessageBox.Show($"Вы уверены, что хотите вернуться назад?\nНесохраненные данные могут быть утеряны","Внимание",
-                MessageBoxButton.YesNo,MessageBoxImage.Exclamation) == MessageBoxResult.Yes)
-            {
-                NavigationService.Navigate(new Login());
-            }
+                NavigationService.GoBack();
         }
     }
 }

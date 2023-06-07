@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище GamesModelContainer" CdmEntityContainer="GamesEntities">
+  <EntityContainerMapping StorageEntityContainer="Хранилище GamesModelContainer" CdmEntityContainer="EntitiesGames">
     <EntitySetMapping Name="Categories">
       <EntityTypeMapping TypeName="GamesModel.Category">
         <MappingFragment StoreEntitySet="Category">
@@ -12,7 +12,7 @@
     <EntitySetMapping Name="Games">
       <EntityTypeMapping TypeName="GamesModel.Game">
         <MappingFragment StoreEntitySet="Game">
-          <ScalarProperty Name="Article" ColumnName="Article" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="description" ColumnName="description" />
           <ScalarProperty Name="equipment" ColumnName="equipment" />
@@ -37,7 +37,7 @@
         <MappingFragment StoreEntitySet="Order">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="users" ColumnName="users" />
-          <ScalarProperty Name="total_coust" ColumnName="total_coust" />
+          <ScalarProperty Name="total_cost" ColumnName="total_cost" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -75,7 +75,7 @@
     </EntitySetMapping>
     <AssociationSetMapping Name="Order_games" TypeName="GamesModel.Order_games" StoreEntitySet="Order_games">
       <EndProperty Name="Game">
-        <ScalarProperty Name="Article" ColumnName="game_Id" />
+        <ScalarProperty Name="Id" ColumnName="game_Id" />
       </EndProperty>
       <EndProperty Name="Order">
         <ScalarProperty Name="Id" ColumnName="order_Id" />

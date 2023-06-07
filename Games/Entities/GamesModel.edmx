@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище GamesModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
@@ -39,14 +39,14 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="users" Type="int" Nullable="false" />
-          <Property Name="total_coust" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="total_cost" Type="decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="Order_games">
           <Key>
             <PropertyRef Name="game_Id" />
             <PropertyRef Name="order_Id" />
           </Key>
-          <Property Name="game_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="game_Id" Type="int" Nullable="false" />
           <Property Name="order_Id" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Role">
@@ -150,7 +150,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище ModelContainer">
+        <EntityContainer Name="Хранилище GamesModelContainer">
           <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Game" EntityType="Self.Game" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Manufacturer" EntityType="Self.Manufacturer" Schema="dbo" store:Type="Tables" />
@@ -188,14 +188,14 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="GamesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Game" Relationship="Self.FK_Game_Category" FromRole="Category" ToRole="Game" />
+          <NavigationProperty Name="Games" Relationship="Self.FK_Game_Category" FromRole="Category" ToRole="Game" />
         </EntityType>
         <EntityType Name="Game">
           <Key>
@@ -212,7 +212,7 @@
           <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Category1" Relationship="Self.FK_Game_Category" FromRole="Game" ToRole="Category" />
           <NavigationProperty Name="Manufacturer1" Relationship="Self.FK_Game_Manufacturer" FromRole="Game" ToRole="Manufacturer" />
-          <NavigationProperty Name="Order" Relationship="Self.Order_games" FromRole="Game" ToRole="Order" />
+          <NavigationProperty Name="Orders" Relationship="Self.Order_games" FromRole="Game" ToRole="Order" />
         </EntityType>
         <EntityType Name="Manufacturer">
           <Key>
@@ -220,7 +220,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Game" Relationship="Self.FK_Game_Manufacturer" FromRole="Manufacturer" ToRole="Game" />
+          <NavigationProperty Name="Games" Relationship="Self.FK_Game_Manufacturer" FromRole="Manufacturer" ToRole="Game" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -228,9 +228,9 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="users" Type="Int32" Nullable="false" />
-          <Property Name="total_coust" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="total_cost" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
           <NavigationProperty Name="User" Relationship="Self.FK_Order_User" FromRole="Order" ToRole="User" />
-          <NavigationProperty Name="Game" Relationship="Self.Order_games" FromRole="Order" ToRole="Game" />
+          <NavigationProperty Name="Games" Relationship="Self.Order_games" FromRole="Order" ToRole="Game" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
@@ -238,9 +238,9 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
         </EntityType>
-        <EntityType Name="sysdiagrams">
+        <EntityType Name="sysdiagram">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
@@ -261,7 +261,7 @@
           <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="role" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_User" FromRole="User" ToRole="Order" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Order_User" FromRole="User" ToRole="Order" />
           <NavigationProperty Name="Role1" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
         </EntityType>
         <Association Name="FK_Game_Category">
@@ -316,33 +316,33 @@
           <End Role="Game" Type="Self.Game" Multiplicity="*" />
           <End Role="Order" Type="Self.Order" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="GamesEntities2" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Category" EntityType="Self.Category" />
-          <EntitySet Name="Game" EntityType="Self.Game" />
-          <EntitySet Name="Manufacturer" EntityType="Self.Manufacturer" />
-          <EntitySet Name="Order" EntityType="Self.Order" />
-          <EntitySet Name="Role" EntityType="Self.Role" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-          <EntitySet Name="User" EntityType="Self.User" />
+        <EntityContainer Name="EntitiesGames" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Games" EntityType="Self.Game" />
+          <EntitySet Name="Manufacturers" EntityType="Self.Manufacturer" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Users" EntityType="Self.User" />
           <AssociationSet Name="FK_Game_Category" Association="Self.FK_Game_Category">
-            <End Role="Category" EntitySet="Category" />
-            <End Role="Game" EntitySet="Game" />
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Game" EntitySet="Games" />
           </AssociationSet>
           <AssociationSet Name="FK_Game_Manufacturer" Association="Self.FK_Game_Manufacturer">
-            <End Role="Manufacturer" EntitySet="Manufacturer" />
-            <End Role="Game" EntitySet="Game" />
+            <End Role="Manufacturer" EntitySet="Manufacturers" />
+            <End Role="Game" EntitySet="Games" />
           </AssociationSet>
           <AssociationSet Name="FK_Order_User" Association="Self.FK_Order_User">
-            <End Role="User" EntitySet="User" />
-            <End Role="Order" EntitySet="Order" />
+            <End Role="User" EntitySet="Users" />
+            <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
-            <End Role="Role" EntitySet="Role" />
-            <End Role="User" EntitySet="User" />
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="User" EntitySet="Users" />
           </AssociationSet>
           <AssociationSet Name="Order_games" Association="Self.Order_games">
-            <End Role="Game" EntitySet="Game" />
-            <End Role="Order" EntitySet="Order" />
+            <End Role="Game" EntitySet="Games" />
+            <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -350,17 +350,17 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище ModelContainer" CdmEntityContainer="GamesEntities2">
-          <EntitySetMapping Name="Category">
-            <EntityTypeMapping TypeName="Model.Category">
+        <EntityContainerMapping StorageEntityContainer="Хранилище GamesModelContainer" CdmEntityContainer="EntitiesGames">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="GamesModel.Category">
               <MappingFragment StoreEntitySet="Category">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Game">
-            <EntityTypeMapping TypeName="Model.Game">
+          <EntitySetMapping Name="Games">
+            <EntityTypeMapping TypeName="GamesModel.Game">
               <MappingFragment StoreEntitySet="Game">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -374,25 +374,25 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Manufacturer">
-            <EntityTypeMapping TypeName="Model.Manufacturer">
+          <EntitySetMapping Name="Manufacturers">
+            <EntityTypeMapping TypeName="GamesModel.Manufacturer">
               <MappingFragment StoreEntitySet="Manufacturer">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Order">
-            <EntityTypeMapping TypeName="Model.Order">
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="GamesModel.Order">
               <MappingFragment StoreEntitySet="Order">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="users" ColumnName="users" />
-                <ScalarProperty Name="total_coust" ColumnName="total_coust" />
+                <ScalarProperty Name="total_cost" ColumnName="total_cost" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Role">
-            <EntityTypeMapping TypeName="Model.Role">
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="GamesModel.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -400,7 +400,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="Model.sysdiagrams">
+            <EntityTypeMapping TypeName="GamesModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -410,8 +410,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="User">
-            <EntityTypeMapping TypeName="Model.User">
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="GamesModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="surname" ColumnName="surname" />
@@ -423,7 +423,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Order_games" TypeName="Model.Order_games" StoreEntitySet="Order_games">
+          <AssociationSetMapping Name="Order_games" TypeName="GamesModel.Order_games" StoreEntitySet="Order_games">
             <EndProperty Name="Game">
               <ScalarProperty Name="Id" ColumnName="game_Id" />
             </EndProperty>
@@ -445,7 +445,7 @@
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />

@@ -27,7 +27,7 @@ namespace Games.Pages
         //Авторизация
         private void Entry_Click(object sender, RoutedEventArgs e)
         {
-            var currect_user = App.db.User.FirstOrDefault(u => u.email == TxbLogin.Text && u.password == TxbPassword.Password );
+            var currect_user = App.db.Users.FirstOrDefault(u => u.email == TxbLogin.Text && u.password == TxbPassword.Password );
             if (TxbLogin.Text == "" || TxbPassword.Password == "")
             {
                 MessageBox.Show("Не все поля заполнены", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);

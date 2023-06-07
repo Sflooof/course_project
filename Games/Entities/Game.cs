@@ -17,8 +17,19 @@ namespace Games.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Game()
         {
-            this.Order = new HashSet<Order>();
+            this.Orders = new HashSet<Order>();
         }
+    
+        public int Id { get; set; }
+        public string name { get; set; }
+        public string description { get; set; }
+        public string equipment { get; set; }
+        public int category { get; set; }
+        public int manufacturer { get; set; }
+        public System.DateTime release_year { get; set; }
+        public decimal cost { get; set; }
+        public byte[] photo { get; set; }
+
         public static string AdminControlsVisibility
         {
             get
@@ -33,19 +44,10 @@ namespace Games.Entities
                 }
             }
         }
-        public int Id { get; set; }
-        public string name { get; set; }
-        public string description { get; set; }
-        public string equipment { get; set; }
-        public int category { get; set; }
-        public int manufacturer { get; set; }
-        public System.DateTime release_year { get; set; }
-        public decimal cost { get; set; }
-        public byte[] photo { get; set; }
-    
+
         public virtual Category Category1 { get; set; }
         public virtual Manufacturer Manufacturer1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Order> Order { get; set; }
+        public virtual ICollection<Order> Orders { get; set; }
     }
 }

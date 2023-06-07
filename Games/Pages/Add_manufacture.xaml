@@ -13,7 +13,7 @@
             <StackPanel VerticalAlignment="Center" Width="500">
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Название*"></TextBlock>
-                    <TextBox Name="Txt_name" Margin="5" Height="35" Width="300"></TextBox>
+                    <TextBox Name="Txt_name" Margin="5" Height="35" Width="300" FontSize="16"></TextBox>
                 </StackPanel>
                 <Button x:Name="SaveBtn" Click="SaveBtn_Click" Content="Coxpанить"/>
                 <Button x:Name="Btn_back" Click="Btn_back_Click" Content="Назад" Width="180"/>
