@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\gun4e\Source\Repos\course_project\Games\obj\Debug\
+C:\Users\10200277\Source\Repos\course_project\Games\obj\Debug\
 Games
 none
 false
 DEBUG;TRACE
-C:\Users\gun4e\Source\Repos\course_project\Games\App.xaml
+C:\Users\10200277\Source\Repos\course_project\Games\App.xaml
 14-889968863
 2-2082771843
 28-2120064549
-18-1790202835
+18-245097375
 Pages\Add_category.xaml;Pages\Add_game.xaml;Pages\Add_manufacture.xaml;Pages\Add_order.xaml;Pages\Catalog.xaml;Pages\Category.xaml;Pages\Game_detail.xaml;Pages\Login.xaml;Pages\Manufacture.xaml;Pages\Order.xaml;Pages\Registration.xaml;Pages\User.xaml;Windows\Game.xaml;Windows\Authorization.xaml;
 
 False

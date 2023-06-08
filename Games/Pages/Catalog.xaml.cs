@@ -31,6 +31,8 @@ namespace Games.Pages
                 Bt_add.Visibility = Visibility.Collapsed;
                 Bt_add_cat.Visibility = Visibility.Collapsed;
                 Bt_add_man.Visibility = Visibility.Collapsed;
+                Bt_add_user.Visibility = Visibility.Collapsed;
+                Bt_add_order.Visibility = Visibility.Collapsed;
             }
             game1 = App.db.Games.ToList().FirstOrDefault();
         }
