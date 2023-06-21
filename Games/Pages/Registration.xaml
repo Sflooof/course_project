@@ -24,7 +24,7 @@
                     <TextBox Name="Txt_patr" Margin="5" Height="25" Width="300"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource ForAdd}" Text="Эектронная почта*"></TextBlock>
+                    <TextBlock Style="{StaticResource ForAdd}" Text="Электронная почта*"></TextBlock>
                     <TextBox Name ="Txt_email" Margin="5" Height="25" Width="300"></TextBox>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
