@@ -33,7 +33,7 @@ namespace Games.Pages
 
         private void Bt_add_user_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Registration());
+            NavigationService.Navigate(new Add_user());
         }
 
         private void Btn_back_Click(object sender, RoutedEventArgs e)
@@ -62,7 +62,7 @@ namespace Games.Pages
         {
             var button = sender as Button;
             var add_user = button.DataContext as Entities.User;
-            NavigationService.Navigate(new Registration(add_user));
+            NavigationService.Navigate(new Add_user(add_user));
         }
         private void Update()
         {

@@ -130,3 +130,5 @@ C:\Users\gun4e\Source\Repos\course_project\Games\obj\Debug\Pages\Category.baml
 C:\Users\gun4e\Source\Repos\course_project\Games\obj\Debug\Pages\Manufacture.baml
 C:\Users\gun4e\Source\Repos\course_project\Games\obj\Debug\Pages\Order.baml
 C:\Users\gun4e\Source\Repos\course_project\Games\obj\Debug\Pages\User.baml
+C:\Users\10200277\Source\Repos\course_project\Games\obj\Debug\Pages\Add_user.g.cs
+C:\Users\10200277\Source\Repos\course_project\Games\obj\Debug\Pages\Add_user.baml
