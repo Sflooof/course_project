@@ -41,7 +41,7 @@
                 </StackPanel>
             </StackPanel>
             <StackPanel VerticalAlignment="Center" Width="500">
-                <TextBlock Style="{StaticResource ForAdd}" Text="Фото игры*"></TextBlock>
+                <TextBlock Style="{StaticResource ForAdd}" Text="Фото игры"></TextBlock>
                 <Image Name ="Img_photo"  Margin="5" Height="150" Width="150"></Image>
                 <Button x:Name="Btn_img" Click="Btn_img_Click" Content="Выбрать фотографию"/>
                 <Button x:Name="SaveBtn" Click="SaveBtn_Click" Content="Coxpанить"/>
